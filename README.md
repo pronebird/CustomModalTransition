@@ -1,4 +1,6 @@
 CustomModalTransition
 =====================
 
-Custom transitions on iOS 7
+Custom modal transition on iOS 7
+
+![Picture](ScreenRecording.gif)
