@@ -42,7 +42,7 @@
 	perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
 	destinationSS.layer.transform = perspectiveTransform;
 	
-	// Begin transition to forward appearance events
+	// Start appearance transition for source controller
 	// Because UIKit does not remove views from hierarchy when transition finished
 	[source beginAppearanceTransition:NO animated:YES];
 	
@@ -65,7 +65,7 @@
 		// Finish transition
 		[transitionContext completeTransition:finished];
 		
-		// End appearance transition
+		// End appearance transition for source controller
 		[source endAppearanceTransition];
 	}];
 }
@@ -90,7 +90,7 @@
 	destRect.origin.y = CGRectGetHeight([[UIScreen mainScreen] bounds]);
 	destination.view.frame = destRect;
 	
-	// Begin transition to forward appearance events
+	// Start appearance transition for destination controller
 	// Because UIKit does not remove views from hierarchy when transition finished
 	[destination beginAppearanceTransition:YES animated:YES];
 	
@@ -114,7 +114,7 @@
 		// Finish transition
 		[transitionContext completeTransition:finished];
 		
-		// End appearance transition
+		// End appearance transition for destination controller
 		[destination endAppearanceTransition];
 	}];
 }
