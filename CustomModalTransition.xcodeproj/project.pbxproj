@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		584FA0821937BBE600B81627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0811937BBE600B81627 /* Foundation.framework */; };
+		584FA0841937BBE600B81627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0831937BBE600B81627 /* CoreGraphics.framework */; };
+		584FA0861937BBE600B81627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0851937BBE600B81627 /* UIKit.framework */; };
+		584FA08C1937BBE600B81627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 584FA08A1937BBE600B81627 /* InfoPlist.strings */; };
+		584FA08E1937BBE600B81627 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA08D1937BBE600B81627 /* main.m */; };
+		584FA0921937BBE600B81627 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0911937BBE600B81627 /* AppDelegate.m */; };
+		584FA0941937BBE600B81627 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584FA0931937BBE600B81627 /* Images.xcassets */; };
+		584FA09B1937BBE600B81627 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA09A1937BBE600B81627 /* XCTest.framework */; };
+		584FA09C1937BBE600B81627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0811937BBE600B81627 /* Foundation.framework */; };
+		584FA09D1937BBE600B81627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0851937BBE600B81627 /* UIKit.framework */; };
+		584FA0A51937BBE700B81627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 584FA0A31937BBE700B81627 /* InfoPlist.strings */; };
+		584FA0A71937BBE700B81627 /* CustomModalTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0A61937BBE700B81627 /* CustomModalTransitionTests.m */; };
+		584FA0B11937BC0000B81627 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584FA0B01937BC0000B81627 /* Storyboard.storyboard */; };
+		584FA0B41937BCD600B81627 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0B31937BCD600B81627 /* RootViewController.m */; };
+		584FA0B71937BCFE00B81627 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0B61937BCFE00B81627 /* ModalViewController.m */; };
+		584FA0BA1937BDEF00B81627 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0B91937BDEF00B81627 /* RootNavigationController.m */; };
+		584FA0BD1937BE0900B81627 /* ModalNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0BC1937BE0900B81627 /* ModalNavigationController.m */; };
+		584FA0C01937BEE900B81627 /* ModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		584FA09E1937BBE700B81627 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 584FA0761937BBE600B81627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 584FA07D1937BBE600B81627;
+			remoteInfo = CustomModalTransition;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		584FA07E1937BBE600B81627 /* CustomModalTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomModalTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		584FA0811937BBE600B81627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		584FA0831937BBE600B81627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		584FA0851937BBE600B81627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		584FA0891937BBE600B81627 /* CustomModalTransition-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomModalTransition-Info.plist"; sourceTree = "<group>"; };
+		584FA08B1937BBE600B81627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		584FA08D1937BBE600B81627 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		584FA08F1937BBE600B81627 /* CustomModalTransition-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomModalTransition-Prefix.pch"; sourceTree = "<group>"; };
+		584FA0901937BBE600B81627 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		584FA0911937BBE600B81627 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		584FA0931937BBE600B81627 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		584FA0991937BBE600B81627 /* CustomModalTransitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomModalTransitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		584FA09A1937BBE600B81627 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		584FA0A21937BBE700B81627 /* CustomModalTransitionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomModalTransitionTests-Info.plist"; sourceTree = "<group>"; };
+		584FA0A41937BBE700B81627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		584FA0A61937BBE700B81627 /* CustomModalTransitionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomModalTransitionTests.m; sourceTree = "<group>"; };
+		584FA0B01937BC0000B81627 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
+		584FA0B21937BCD600B81627 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		584FA0B31937BCD600B81627 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		584FA0B51937BCFE00B81627 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		584FA0B61937BCFE00B81627 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		584FA0B81937BDEF00B81627 /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
+		584FA0B91937BDEF00B81627 /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		584FA0BB1937BE0900B81627 /* ModalNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalNavigationController.h; sourceTree = "<group>"; };
+		584FA0BC1937BE0900B81627 /* ModalNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalNavigationController.m; sourceTree = "<group>"; };
+		584FA0BE1937BEE900B81627 /* ModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalTransitionAnimator.h; sourceTree = "<group>"; };
+		584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalTransitionAnimator.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		584FA07B1937BBE600B81627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA0841937BBE600B81627 /* CoreGraphics.framework in Frameworks */,
+				584FA0861937BBE600B81627 /* UIKit.framework in Frameworks */,
+				584FA0821937BBE600B81627 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		584FA0961937BBE600B81627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA09B1937BBE600B81627 /* XCTest.framework in Frameworks */,
+				584FA09D1937BBE600B81627 /* UIKit.framework in Frameworks */,
+				584FA09C1937BBE600B81627 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		584FA0751937BBE600B81627 = {
+			isa = PBXGroup;
+			children = (
+				584FA0871937BBE600B81627 /* CustomModalTransition */,
+				584FA0A01937BBE700B81627 /* CustomModalTransitionTests */,
+				584FA0801937BBE600B81627 /* Frameworks */,
+				584FA07F1937BBE600B81627 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		584FA07F1937BBE600B81627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				584FA07E1937BBE600B81627 /* CustomModalTransition.app */,
+				584FA0991937BBE600B81627 /* CustomModalTransitionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		584FA0801937BBE600B81627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				584FA0811937BBE600B81627 /* Foundation.framework */,
+				584FA0831937BBE600B81627 /* CoreGraphics.framework */,
+				584FA0851937BBE600B81627 /* UIKit.framework */,
+				584FA09A1937BBE600B81627 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		584FA0871937BBE600B81627 /* CustomModalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				584FA0901937BBE600B81627 /* AppDelegate.h */,
+				584FA0911937BBE600B81627 /* AppDelegate.m */,
+				584FA0B21937BCD600B81627 /* RootViewController.h */,
+				584FA0B31937BCD600B81627 /* RootViewController.m */,
+				584FA0B81937BDEF00B81627 /* RootNavigationController.h */,
+				584FA0B91937BDEF00B81627 /* RootNavigationController.m */,
+				584FA0B51937BCFE00B81627 /* ModalViewController.h */,
+				584FA0B61937BCFE00B81627 /* ModalViewController.m */,
+				584FA0BB1937BE0900B81627 /* ModalNavigationController.h */,
+				584FA0BC1937BE0900B81627 /* ModalNavigationController.m */,
+				584FA0BE1937BEE900B81627 /* ModalTransitionAnimator.h */,
+				584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */,
+				584FA0B01937BC0000B81627 /* Storyboard.storyboard */,
+				584FA0931937BBE600B81627 /* Images.xcassets */,
+				584FA0881937BBE600B81627 /* Supporting Files */,
+			);
+			path = CustomModalTransition;
+			sourceTree = "<group>";
+		};
+		584FA0881937BBE600B81627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				584FA0891937BBE600B81627 /* CustomModalTransition-Info.plist */,
+				584FA08A1937BBE600B81627 /* InfoPlist.strings */,
+				584FA08D1937BBE600B81627 /* main.m */,
+				584FA08F1937BBE600B81627 /* CustomModalTransition-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		584FA0A01937BBE700B81627 /* CustomModalTransitionTests */ = {
+			isa = PBXGroup;
+			children = (
+				584FA0A61937BBE700B81627 /* CustomModalTransitionTests.m */,
+				584FA0A11937BBE700B81627 /* Supporting Files */,
+			);
+			path = CustomModalTransitionTests;
+			sourceTree = "<group>";
+		};
+		584FA0A11937BBE700B81627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				584FA0A21937BBE700B81627 /* CustomModalTransitionTests-Info.plist */,
+				584FA0A31937BBE700B81627 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		584FA07D1937BBE600B81627 /* CustomModalTransition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 584FA0AA1937BBE700B81627 /* Build configuration list for PBXNativeTarget "CustomModalTransition" */;
+			buildPhases = (
+				584FA07A1937BBE600B81627 /* Sources */,
+				584FA07B1937BBE600B81627 /* Frameworks */,
+				584FA07C1937BBE600B81627 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomModalTransition;
+			productName = CustomModalTransition;
+			productReference = 584FA07E1937BBE600B81627 /* CustomModalTransition.app */;
+			productType = "com.apple.product-type.application";
+		};
+		584FA0981937BBE600B81627 /* CustomModalTransitionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 584FA0AD1937BBE700B81627 /* Build configuration list for PBXNativeTarget "CustomModalTransitionTests" */;
+			buildPhases = (
+				584FA0951937BBE600B81627 /* Sources */,
+				584FA0961937BBE600B81627 /* Frameworks */,
+				584FA0971937BBE600B81627 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				584FA09F1937BBE700B81627 /* PBXTargetDependency */,
+			);
+			name = CustomModalTransitionTests;
+			productName = CustomModalTransitionTests;
+			productReference = 584FA0991937BBE600B81627 /* CustomModalTransitionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		584FA0761937BBE600B81627 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = codeispoetry.ru;
+				TargetAttributes = {
+					584FA0981937BBE600B81627 = {
+						TestTargetID = 584FA07D1937BBE600B81627;
+					};
+				};
+			};
+			buildConfigurationList = 584FA0791937BBE600B81627 /* Build configuration list for PBXProject "CustomModalTransition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 584FA0751937BBE600B81627;
+			productRefGroup = 584FA07F1937BBE600B81627 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				584FA07D1937BBE600B81627 /* CustomModalTransition */,
+				584FA0981937BBE600B81627 /* CustomModalTransitionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		584FA07C1937BBE600B81627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA08C1937BBE600B81627 /* InfoPlist.strings in Resources */,
+				584FA0941937BBE600B81627 /* Images.xcassets in Resources */,
+				584FA0B11937BC0000B81627 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		584FA0971937BBE600B81627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA0A51937BBE700B81627 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		584FA07A1937BBE600B81627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA0B71937BCFE00B81627 /* ModalViewController.m in Sources */,
+				584FA0BD1937BE0900B81627 /* ModalNavigationController.m in Sources */,
+				584FA0C01937BEE900B81627 /* ModalTransitionAnimator.m in Sources */,
+				584FA0921937BBE600B81627 /* AppDelegate.m in Sources */,
+				584FA08E1937BBE600B81627 /* main.m in Sources */,
+				584FA0BA1937BDEF00B81627 /* RootNavigationController.m in Sources */,
+				584FA0B41937BCD600B81627 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		584FA0951937BBE600B81627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584FA0A71937BBE700B81627 /* CustomModalTransitionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		584FA09F1937BBE700B81627 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 584FA07D1937BBE600B81627 /* CustomModalTransition */;
+			targetProxy = 584FA09E1937BBE700B81627 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		584FA08A1937BBE600B81627 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				584FA08B1937BBE600B81627 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		584FA0A31937BBE700B81627 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				584FA0A41937BBE700B81627 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		584FA0A81937BBE700B81627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		584FA0A91937BBE700B81627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		584FA0AB1937BBE700B81627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
+				INFOPLIST_FILE = "CustomModalTransition/CustomModalTransition-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		584FA0AC1937BBE700B81627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
+				INFOPLIST_FILE = "CustomModalTransition/CustomModalTransition-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		584FA0AE1937BBE700B81627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CustomModalTransition.app/CustomModalTransition";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CustomModalTransitionTests/CustomModalTransitionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		584FA0AF1937BBE700B81627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CustomModalTransition.app/CustomModalTransition";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
+				INFOPLIST_FILE = "CustomModalTransitionTests/CustomModalTransitionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		584FA0791937BBE600B81627 /* Build configuration list for PBXProject "CustomModalTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				584FA0A81937BBE700B81627 /* Debug */,
+				584FA0A91937BBE700B81627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		584FA0AA1937BBE700B81627 /* Build configuration list for PBXNativeTarget "CustomModalTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				584FA0AB1937BBE700B81627 /* Debug */,
+				584FA0AC1937BBE700B81627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		584FA0AD1937BBE700B81627 /* Build configuration list for PBXNativeTarget "CustomModalTransitionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				584FA0AE1937BBE700B81627 /* Debug */,
+				584FA0AF1937BBE700B81627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 584FA0761937BBE600B81627 /* Project object */;
+}
