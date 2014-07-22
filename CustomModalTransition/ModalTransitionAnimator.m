@@ -24,6 +24,27 @@
 	}
 }
 
+- (CGRect)finalFrameForPresentedControllerWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+	CGRect frame = transitionContext.containerView.bounds;
+	UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+	
+	switch (orientation) {
+		case UIInterfaceOrientationLandscapeLeft:
+			return CGRectMake(CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+			break;
+		case UIInterfaceOrientationLandscapeRight:
+			return CGRectMake(-CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+			break;
+		case UIInterfaceOrientationPortraitUpsideDown:
+			return CGRectMake(0, -CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
+			break;
+		default:
+		case UIInterfaceOrientationPortrait:
+			return CGRectMake(0, CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
+			break;
+	}
+}
+
 - (void)animatePresentation:(id<UIViewControllerContextTransitioning>)transitionContext
 {
 	UIViewController* source = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -40,7 +61,6 @@
 	[container addSubview:source.view];
 	
 	// Move destination snapshot back in Z plane
-	
 	// Important: original transform3d is different from CATransform3DIdentity
 	CATransform3D originalTransform = destination.view.layer.transform;
 	
@@ -51,14 +71,13 @@
 	destination.view.layer.transform = perspectiveTransform;
 	
 	// Start appearance transition for source controller
-	// Because UIKit does not remove views from hierarchy when transition finished
+	// Because UIKit does not do this automatically
 	[source beginAppearanceTransition:NO animated:YES];
 	
+	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			CGRect sourceRect = source.view.frame;
-			sourceRect.origin.y = CGRectGetHeight(container.bounds);
-			source.view.frame = sourceRect;
+			source.view.frame = [self finalFrameForPresentedControllerWithContext:transitionContext];
 		}];
 		[UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.8 animations:^{
 			destination.view.layer.transform = originalTransform;
@@ -92,20 +111,16 @@
 	[container addSubview:destination.view];
 	
 	// Start appearance transition for destination controller
-	// Because UIKit does not remove views from hierarchy when transition finished
+	// Because UIKit does not do this automatically
 	[destination beginAppearanceTransition:YES animated:YES];
 
 	// Move destination view below source view
-	CGRect destRect = destination.view.frame;
-	destRect.origin.y = CGRectGetHeight(container.bounds);
-	destination.view.frame = destRect;
+	destination.view.frame = [self finalFrameForPresentedControllerWithContext:transitionContext];
 	
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			CGRect destRect = destination.view.frame;
-			destRect.origin.y = 0;
-			destination.view.frame = destRect;
+			destination.view.frame = container.bounds;
 		}];
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
 			// Important: original transform3d is different from CATransform3DIdentity

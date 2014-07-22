@@ -38,8 +38,4 @@
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	
-}
-
 @end
