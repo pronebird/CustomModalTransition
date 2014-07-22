@@ -50,8 +50,6 @@
 }
 
 - (IBAction)unwindToRootViewController:(UIStoryboardSegue*)unwindSegue {
-	// Dismiss controller since nobody else can
-	[unwindSegue.sourceViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Custom transitions

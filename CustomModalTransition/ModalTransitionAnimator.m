@@ -30,17 +30,25 @@
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 	UIView* container = transitionContext.containerView;
 	
-	// Take destination view snapshot
-	UIView* destinationSS = [destination.view snapshotViewAfterScreenUpdates:YES]; // YES because the view hasn't been rendered yet.
+	// Orientation bug fix
+	// See: http://stackoverflow.com/a/20061872/351305
+	destination.view.frame = container.bounds;
+	source.view.frame = container.bounds;
 	
-	// Add snapshot view
-	[container addSubview:destinationSS];
+	// Add controllers
+	[container addSubview:destination.view];
+	[container addSubview:source.view];
 	
 	// Move destination snapshot back in Z plane
-	CATransform3D perspectiveTransform = CATransform3DIdentity;
+	
+	// Important: original transform3d is different from CATransform3DIdentity
+	CATransform3D originalTransform = destination.view.layer.transform;
+	
+	// Apply custom transform
+	CATransform3D perspectiveTransform = originalTransform;
 	perspectiveTransform.m34 = 1.0 / -1000.0;
 	perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
-	destinationSS.layer.transform = perspectiveTransform;
+	destination.view.layer.transform = perspectiveTransform;
 	
 	// Start appearance transition for source controller
 	// Because UIKit does not remove views from hierarchy when transition finished
@@ -49,24 +57,22 @@
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
 			CGRect sourceRect = source.view.frame;
-			sourceRect.origin.y = CGRectGetHeight([[UIScreen mainScreen] bounds]);
+			sourceRect.origin.y = CGRectGetHeight(container.bounds);
 			source.view.frame = sourceRect;
 		}];
 		[UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.8 animations:^{
-			destinationSS.layer.transform = CATransform3DIdentity;
+			destination.view.layer.transform = originalTransform;
 		}];
 	} completion:^(BOOL finished) {
-		// Remove destination snapshot
-		[destinationSS removeFromSuperview];
-		
-		// Add destination controller to view
-		[container addSubview:destination.view];
-		
-		// Finish transition
-		[transitionContext completeTransition:finished];
+		// Important: remove source view
+		// Otherwise it may show up on rotation..
+		[source.view removeFromSuperview];
 		
 		// End appearance transition for source controller
 		[source endAppearanceTransition];
+		
+		// Finish transition
+		[transitionContext completeTransition:finished];
 	}];
 }
 
@@ -76,23 +82,23 @@
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 	UIView* container = transitionContext.containerView;
 	
-	// Take source view snapshot
-	UIView* sourceSS = [source.view snapshotViewAfterScreenUpdates:NO];
+	// Orientation bug fix
+	// See: http://stackoverflow.com/a/20061872/351305
+	destination.view.frame = container.bounds;
+	source.view.frame = container.bounds;
 	
-	// Remove source view
-	[source.view removeFromSuperview];
-	
-	// Add snapshot view
-	[container addSubview:sourceSS];
-	
-	// Move destination view below source view
-	CGRect destRect = destination.view.frame;
-	destRect.origin.y = CGRectGetHeight([[UIScreen mainScreen] bounds]);
-	destination.view.frame = destRect;
+	// Add controllers
+	[container addSubview:source.view];
+	[container addSubview:destination.view];
 	
 	// Start appearance transition for destination controller
 	// Because UIKit does not remove views from hierarchy when transition finished
 	[destination beginAppearanceTransition:YES animated:YES];
+
+	// Move destination view below source view
+	CGRect destRect = destination.view.frame;
+	destRect.origin.y = CGRectGetHeight(container.bounds);
+	destination.view.frame = destRect;
 	
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
@@ -102,20 +108,21 @@
 			destination.view.frame = destRect;
 		}];
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			CATransform3D perspectiveTransform = CATransform3DIdentity;
+			// Important: original transform3d is different from CATransform3DIdentity
+			CATransform3D perspectiveTransform = source.view.layer.transform;
+			
 			perspectiveTransform.m34 = 1.0 / -1000.0;
 			perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
-			sourceSS.layer.transform = perspectiveTransform;
+			source.view.layer.transform = perspectiveTransform;
 		}];
 	} completion:^(BOOL finished) {
-		// Remove source snapshot
-		[sourceSS removeFromSuperview];
+		// End appearance transition for destination controller
+		[destination endAppearanceTransition];
+		
+		// We don't have to remove source.view here as UIKit takes care of this on dismiss
 		
 		// Finish transition
 		[transitionContext completeTransition:finished];
-		
-		// End appearance transition for destination controller
-		[destination endAppearanceTransition];
 	}];
 }
 

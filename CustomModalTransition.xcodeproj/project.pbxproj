@@ -471,6 +471,7 @@
 				584FA0AC1937BBE700B81627 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		584FA0AD1937BBE700B81627 /* Build configuration list for PBXNativeTarget "CustomModalTransitionTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				584FA0AF1937BBE700B81627 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
