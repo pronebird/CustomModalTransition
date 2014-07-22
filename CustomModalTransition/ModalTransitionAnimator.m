@@ -72,7 +72,7 @@
 		[source endAppearanceTransition];
 		
 		// Finish transition
-		[transitionContext completeTransition:finished];
+		[transitionContext completeTransition:YES];
 	}];
 }
 
@@ -119,10 +119,11 @@
 		// End appearance transition for destination controller
 		[destination endAppearanceTransition];
 		
-		// We don't have to remove source.view here as UIKit takes care of this on dismiss
+		// Remove source view
+		[source.view removeFromSuperview];
 		
 		// Finish transition
-		[transitionContext completeTransition:finished];
+		[transitionContext completeTransition:YES];
 	}];
 }
 
