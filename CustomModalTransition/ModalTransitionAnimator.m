@@ -31,7 +31,6 @@
 - (CGRect)presentingControllerFrameWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
 	CGRect frame = transitionContext.containerView.bounds;
 	
-	
 	if(floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) // iOS 8+
 	{
 		//
