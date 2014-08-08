@@ -141,6 +141,15 @@
 		// Remove source view
 		[source.view removeFromSuperview];
 		
+		//
+		// iOS 8 beta 5 Patch:
+		// UIKit removes destination.view from hierarchy and leaves the blank screen.
+		// Manually adding UILayoutContainer to window hierarchy magically solves the problem.
+		//
+		if([[[UIDevice currentDevice] systemVersion] integerValue] == 8) {
+			[destination.view.window addSubview:destination.view];
+		}
+		
 		// Finish transition
 		[transitionContext completeTransition:YES];
 	}];
