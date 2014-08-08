@@ -25,27 +25,45 @@
 }
 
 //
-// Calculate a final frame for presenting controller according to status bar orientation
+// Calculate a final frame for presenting controller according to interface orientation
 // Presenting controller should always slide down and its top should coincide with the bottom of screen
 //
 - (CGRect)presentingControllerFrameWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
 	CGRect frame = transitionContext.containerView.bounds;
-	UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
 	
-	switch (orientation) {
-		case UIInterfaceOrientationLandscapeLeft:
-			return CGRectMake(CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
-			break;
-		case UIInterfaceOrientationLandscapeRight:
-			return CGRectMake(-CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
-			break;
-		case UIInterfaceOrientationPortraitUpsideDown:
-			return CGRectMake(0, -CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
-			break;
-		default:
-		case UIInterfaceOrientationPortrait:
-			return CGRectMake(0, CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
-			break;
+	
+	if(floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) // iOS 8+
+	{
+		//
+		// On iOS 8, UIKit handles rotation using transform matrix
+		// Therefore we should always return a frame for portrait mode
+		//
+		return CGRectMake(0, CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
+	}
+	else
+	{
+		//
+		// On iOS 7, UIKit does not handle rotation
+		// To make sure our view is moving in the right direction (always down) we should
+		// fix the frame accoding to interface orientation.
+		//
+		UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+		
+		switch (orientation) {
+			case UIInterfaceOrientationLandscapeLeft:
+				return CGRectMake(CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+				break;
+			case UIInterfaceOrientationLandscapeRight:
+				return CGRectMake(-CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+				break;
+			case UIInterfaceOrientationPortraitUpsideDown:
+				return CGRectMake(0, -CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
+				break;
+			default:
+			case UIInterfaceOrientationPortrait:
+				return CGRectMake(0, CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
+				break;
+		}
 	}
 }
 
@@ -146,7 +164,7 @@
 		// UIKit removes destination.view from hierarchy and leaves the blank screen.
 		// Manually adding UILayoutContainer to window hierarchy magically solves the problem.
 		//
-		if([[[UIDevice currentDevice] systemVersion] integerValue] == 8) {
+		if(floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
 			[destination.view.window addSubview:destination.view];
 		}
 		
