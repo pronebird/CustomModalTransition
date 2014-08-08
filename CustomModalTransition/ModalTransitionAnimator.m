@@ -24,7 +24,11 @@
 	}
 }
 
-- (CGRect)finalFrameForPresentedControllerWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+//
+// Calculate a final frame for presenting controller according to status bar orientation
+// Presenting controller should always slide down and its top should coincide with the bottom of screen
+//
+- (CGRect)presentingControllerFrameWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
 	CGRect frame = transitionContext.containerView.bounds;
 	UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
 	
@@ -77,7 +81,7 @@
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
 		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			source.view.frame = [self finalFrameForPresentedControllerWithContext:transitionContext];
+			source.view.frame = [self presentingControllerFrameWithContext:transitionContext];
 		}];
 		[UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.8 animations:^{
 			destination.view.layer.transform = originalTransform;
@@ -115,7 +119,7 @@
 	[destination beginAppearanceTransition:YES animated:YES];
 
 	// Move destination view below source view
-	destination.view.frame = [self finalFrameForPresentedControllerWithContext:transitionContext];
+	destination.view.frame = [self presentingControllerFrameWithContext:transitionContext];
 	
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
