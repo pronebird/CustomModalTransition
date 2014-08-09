@@ -15,6 +15,10 @@
 	return self.topViewController;
 }
 
+- (UIViewController*)childViewControllerForStatusBarHidden {
+	return self.topViewController;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	
