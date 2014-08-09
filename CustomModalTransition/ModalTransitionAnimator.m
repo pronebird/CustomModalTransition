@@ -50,10 +50,10 @@
 		
 		switch (orientation) {
 			case UIInterfaceOrientationLandscapeLeft:
-				return CGRectMake(CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+				return CGRectMake(CGRectGetWidth(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
 				break;
 			case UIInterfaceOrientationLandscapeRight:
-				return CGRectMake(-CGRectGetHeight(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+				return CGRectMake(-CGRectGetWidth(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
 				break;
 			case UIInterfaceOrientationPortraitUpsideDown:
 				return CGRectMake(0, -CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
