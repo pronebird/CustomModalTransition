@@ -34,4 +34,4 @@ This project is a part of [my blog post](https://coderwall.com/p/njtb0q). Howeve
 
 - Unwinding works fine, it magically start working if you remove presenting view from container when animation finished.
 - Resetting views' frames to container bounds before adding them to container helps to solve issues with misplaced navigation bar
-- On iOS 8 beta you would end up with blank screen after dismiss. A simple fix was to add presenting view on window before calling `completeTransition`. Probably it is somehow related to my practice of removing presenting view from container when presenting.
+- On iOS 8 beta you would end up with blank screen after dismiss. A simple fix was to add presenting view on window before calling `completeTransition`. Probably it's somehow related to the fact of removing presenting view from container.
