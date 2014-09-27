@@ -30,7 +30,7 @@ This transition supports both landscape and portrait modes and works on iOS 7 an
 
 ### Blog post
 
-This project is a part of [my blog post](https://coderwall.com/p/njtb0q). However lots of things changed since I original blog post was published.
+This project is a part of [my blog post](https://coderwall.com/p/njtb0q). However lots of things changed since original blog post was published.
 
 - Unwinding works fine, it magically start working if you remove presenting view from container when animation finished.
 - Resetting views' frames to container bounds before adding them to container helps to solve issues with misplaced navigation bar
