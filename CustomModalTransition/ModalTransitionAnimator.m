@@ -11,7 +11,7 @@
 @implementation ModalTransitionAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-	return 0.5;
+	return 0.6;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -68,6 +68,7 @@
 
 - (void)animatePresentation:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
 	UIViewController* source = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView* container = transitionContext.containerView;
@@ -98,24 +99,26 @@
     [source beginAppearanceTransition:NO animated:YES];
 	
 	// Animate
-	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			source.view.frame = [self presentingControllerFrameWithContext:transitionContext];
-		}];
-		[UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.8 animations:^{
-			destination.view.layer.transform = originalTransform;
-		}];
-	} completion:^(BOOL finished) {
-        // End appearance transition for source controller
-        [source endAppearanceTransition];
-
-		// Finish transition
-		[transitionContext completeTransition:YES];
-	}];
+    [UIView animateKeyframesWithDuration:transitionDuration delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
+                                     [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
+                                         source.view.frame = [self presentingControllerFrameWithContext:transitionContext];
+                                     }];
+                                     [UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.8 animations:^{
+                                         destination.view.layer.transform = originalTransform;
+                                     }];
+                                 } completion:^(BOOL finished) {
+                                     // End appearance transition for source controller
+                                     [source endAppearanceTransition];
+                                     
+                                     // Finish transition
+                                     [transitionContext completeTransition:YES];
+                                 }];
 }
 
 - (void)animateDismissal:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
 	UIViewController* source = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 	UIView* container = transitionContext.containerView;
@@ -133,25 +136,26 @@
     [destination beginAppearanceTransition:YES animated:YES];
 	
 	// Animate
-	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			destination.view.frame = container.bounds;
-		}];
-		[UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
-			// Important: original transform3d is different from CATransform3DIdentity
-			CATransform3D perspectiveTransform = source.view.layer.transform;
-			
-			perspectiveTransform.m34 = 1.0 / -1000.0;
-			perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
-			source.view.layer.transform = perspectiveTransform;
-		}];
-	} completion:^(BOOL finished) {
-        // End appearance transition for destination controller
-        [destination endAppearanceTransition];
-
-		// Finish transition
-		[transitionContext completeTransition:YES];
-	}];
+    [UIView animateKeyframesWithDuration:transitionDuration delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
+                                     [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
+                                         destination.view.frame = container.bounds;
+                                     }];
+                                     [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
+                                         // Important: original transform3d is different from CATransform3DIdentity
+                                         CATransform3D perspectiveTransform = source.view.layer.transform;
+                                         
+                                         perspectiveTransform.m34 = 1.0 / -1000.0;
+                                         perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
+                                         source.view.layer.transform = perspectiveTransform;
+                                     }];
+                                 } completion:^(BOOL finished) {
+                                     // End appearance transition for destination controller
+                                     [destination endAppearanceTransition];
+                                     
+                                     // Finish transition
+                                     [transitionContext completeTransition:YES];
+                                 }];
 }
 
 @end
