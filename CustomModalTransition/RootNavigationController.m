@@ -43,4 +43,9 @@
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
+- (UIStoryboardSegue*)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    // UIKit bug: http://stackoverflow.com/a/28607309/351305
+    return [toViewController segueForUnwindingToViewController:toViewController fromViewController:fromViewController identifier:identifier];
+}
+
 @end

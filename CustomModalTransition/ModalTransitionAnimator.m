@@ -70,16 +70,18 @@
 {
 	UIViewController* source = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-	UIView* container = transitionContext.containerView;
+    UIView* container = transitionContext.containerView;
+    
+    // Orientation bug fix
+    // See: http://stackoverflow.com/a/20061872/351305
+    destination.view.frame = container.bounds;
+    source.view.frame = container.bounds;
+    
+    // Place container view before source view
+    [container.superview sendSubviewToBack:container];
 	
-	// Orientation bug fix
-	// See: http://stackoverflow.com/a/20061872/351305
-	destination.view.frame = container.bounds;
-	source.view.frame = container.bounds;
-	
-	// Add controllers
+	// Add destination view to container
 	[container addSubview:destination.view];
-	[container addSubview:source.view];
 	
 	// Move destination snapshot back in Z plane
 	// Important: original transform3d is different from CATransform3DIdentity
@@ -90,10 +92,10 @@
 	perspectiveTransform.m34 = 1.0 / -1000.0;
 	perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
 	destination.view.layer.transform = perspectiveTransform;
-	
-	// Start appearance transition for source controller
-	// Because UIKit does not do this automatically
-	[source beginAppearanceTransition:NO animated:YES];
+    
+    // Start appearance transition for source controller
+    // Because UIKit does not do this automatically
+    [source beginAppearanceTransition:NO animated:YES];
 	
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
@@ -104,13 +106,9 @@
 			destination.view.layer.transform = originalTransform;
 		}];
 	} completion:^(BOOL finished) {
-		// Important: remove source view
-		// Otherwise it may show up on rotation..
-		[source.view removeFromSuperview];
-		
-		// End appearance transition for source controller
-		[source endAppearanceTransition];
-		
+        // End appearance transition for source controller
+        [source endAppearanceTransition];
+
 		// Finish transition
 		[transitionContext completeTransition:YES];
 	}];
@@ -121,22 +119,18 @@
 	UIViewController* source = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 	UIView* container = transitionContext.containerView;
-	
-	// Orientation bug fix
-	// See: http://stackoverflow.com/a/20061872/351305
-	destination.view.frame = container.bounds;
-	source.view.frame = container.bounds;
-	
-	// Add controllers
-	[container addSubview:source.view];
-	[container addSubview:destination.view];
-	
-	// Start appearance transition for destination controller
-	// Because UIKit does not do this automatically
-	[destination beginAppearanceTransition:YES animated:YES];
+    
+    // Orientation bug fix
+    // See: http://stackoverflow.com/a/20061872/351305
+    destination.view.frame = container.bounds;
+    source.view.frame = container.bounds;
 
 	// Move destination view below source view
 	destination.view.frame = [self presentingControllerFrameWithContext:transitionContext];
+    
+    // Start appearance transition for destination controller
+    // Because UIKit does not do this automatically
+    [destination beginAppearanceTransition:YES animated:YES];
 	
 	// Animate
 	[UIView animateKeyframesWithDuration:0.5 delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
@@ -152,21 +146,9 @@
 			source.view.layer.transform = perspectiveTransform;
 		}];
 	} completion:^(BOOL finished) {
-		// End appearance transition for destination controller
-		[destination endAppearanceTransition];
-		
-		// Remove source view
-		[source.view removeFromSuperview];
-		
-		//
-		// iOS 8 beta 5 Patch:
-		// UIKit removes destination.view from hierarchy and leaves the blank screen.
-		// Manually adding UILayoutContainer to window hierarchy magically solves the problem.
-		//
-		if(floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
-			[destination.view.window addSubview:destination.view];
-		}
-		
+        // End appearance transition for destination controller
+        [destination endAppearanceTransition];
+
 		// Finish transition
 		[transitionContext completeTransition:YES];
 	}];
