@@ -69,7 +69,7 @@
     UIView* container = transitionContext.containerView;
     
     // First reset destination view frame
-    // This helps to workaround issue navigation bar being 44px instead of 64px
+    // This helps to workaround issue with navigation bar being 44px instead of 64px
     destinationView.frame = container.bounds;
     
     // Add destination view because it was removed after controller was presented
