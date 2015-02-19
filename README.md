@@ -3,7 +3,7 @@ Custom modal transition
 
 This transition supports both landscape and portrait modes and works on iOS 7 - iOS 8.2. 
 
-![Picture](ScreenRecording.gif)
+<img src="ScreenRecording.gif" width="240" align="center">
 
 ### UIPresentationController update (iOS 8 only)
 
