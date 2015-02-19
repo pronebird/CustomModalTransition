@@ -11,21 +11,21 @@
 @implementation ModalTransitionAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-	return 0.6;
+    return 0.6;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-	UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-	
-	if([destination isBeingPresented]) {
-		[self animatePresentation:transitionContext];
-	} else {
-		[self animateDismissal:transitionContext];
-	}
+    UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    
+    if([destination isBeingPresented]) {
+        [self animatePresentation:transitionContext];
+    } else {
+        [self animateDismissal:transitionContext];
+    }
 }
 
 - (CGRect)presentingControllerFrameWithContext:(id<UIViewControllerContextTransitioning>)transitionContext {
-	CGRect frame = transitionContext.containerView.bounds;
+    CGRect frame = transitionContext.containerView.bounds;
 
     return CGRectMake(0, CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
 }
@@ -33,20 +33,20 @@
 - (void)animatePresentation:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-	UIView* sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-	UIView* destinationView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    UIView* sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView* destinationView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView* container = transitionContext.containerView;
-	
-	// Add destination view to container
-	[container insertSubview:destinationView atIndex:0];
-	
-	// Move destination snapshot back in Z plane
-	CATransform3D perspectiveTransform = destinationView.layer.transform;
-	perspectiveTransform.m34 = 1.0 / -1000.0;
-	perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
-	destinationView.layer.transform = perspectiveTransform;
-	
-	// Animate
+    
+    // Add destination view to container
+    [container insertSubview:destinationView atIndex:0];
+    
+    // Move destination snapshot back in Z plane
+    CATransform3D perspectiveTransform = destinationView.layer.transform;
+    perspectiveTransform.m34 = 1.0 / -1000.0;
+    perspectiveTransform = CATransform3DTranslate(perspectiveTransform, 0, 0, -100);
+    destinationView.layer.transform = perspectiveTransform;
+    
+    // Animate
     [UIView animateKeyframesWithDuration:transitionDuration delay:0.0
                                  options:UIViewKeyframeAnimationOptionCalculationModeCubic
                               animations:^{
@@ -78,8 +78,8 @@
     
     // Now we can revert destination view frame
     destinationView.frame = [self presentingControllerFrameWithContext:transitionContext];
-	
-	// Animate
+    
+    // Animate
     [UIView animateKeyframesWithDuration:transitionDuration delay:0.0
                                  options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
                                      [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^{
