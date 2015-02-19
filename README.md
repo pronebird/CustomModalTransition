@@ -7,7 +7,7 @@ This transition supports both landscape and portrait modes and works on iOS 7 - 
 
 ### UIPresentationController update (iOS 8 only)
 
-A solution using `UIPresentationController` and without iOS 7 hacks can be found in [ios8 branch](https://github.com/pronebird/CustomModalTransition/tree/ios8). It features appearance events handled properly by `UIPresentationController`, device orientations support and much less code.
+A solution using `UIPresentationController` and without iOS 7 hacks can be found in [ios8 branch](https://github.com/pronebird/CustomModalTransition/tree/ios8). It features properly handled appearance events, device orientations support and much less code.
 
 ### Cavets
 
