@@ -1,7 +1,7 @@
 Custom modal transition
 =====================
 
-This transition supports both landscape and portrait modes and works on iOS 7 and iOS 8 beta 5. 
+This transition supports both landscape and portrait modes and works on iOS 7 - iOS 8.2. 
 
 ![Picture](ScreenRecording.gif)
 
@@ -32,6 +32,5 @@ This transition supports both landscape and portrait modes and works on iOS 7 an
 
 This project is a part of [my blog post](https://coderwall.com/p/njtb0q). However lots of things changed since original blog post was published.
 
-- Unwinding works fine, it magically start working if you remove presenting view from container when animation finished.
-- Resetting views' frames to container bounds before adding them to container helps to solve issues with misplaced navigation bar
-- On iOS 8 beta you would end up with blank screen after dismiss. A simple fix was to add presenting view on window before calling `completeTransition`. Probably it's somehow related to the fact of removing presenting view from container.
+- Unwinding works fine if you fix `segueForUnwindingToViewController` in source navigation controller and create unwind segue using source view controller. Works for both iOS 7 and 8 (see http://stackoverflow.com/a/28607309/351305)
+- Resetting views' frames to container bounds before adding them to container helps to solve issues with misplaced navigation bar and rotation issues on iOS 7.
