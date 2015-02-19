@@ -9,7 +9,7 @@ A custom transition I developed for one of my apps. It works on iOS 7 - iOS 8.2.
 
 A solution using `UIPresentationController` and without iOS 7 hacks can be found in [ios8 branch](https://github.com/pronebird/CustomModalTransition/tree/ios8). It features properly handled appearance events, device orientations support and much less code.
 
-### Cavets
+### Caveats
 
 - Controllers will not properly rotate if orientation changed when presented. There is only one exception, if presented controller is a navigation controller, then rotation works fine. This seems to be a UIKit bug on iOS 7 or iOS 8. `UIPresentationController` solves that problem by providing a way to resize controllers on orientation change.
 - State restoration is possible but presented VC should restore `transitioningDelegate`, `modalPresentationStyle` and `modalPresentationCapturesStatusBarAppearance`. If you use storyboards then it's easy:
