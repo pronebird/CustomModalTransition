@@ -7,9 +7,22 @@
 //
 
 #import "RootViewController.h"
-#import "ModalTransitionAnimator.h"
+#import "ModalTransitionDelegate.h"
+
+@interface RootViewController()
+
+@property (nonatomic) ModalTransitionDelegate* transitionDelegate;
+
+@end
 
 @implementation RootViewController
+
+- (ModalTransitionDelegate*)transitionDelegate {
+    if(!_transitionDelegate) {
+        _transitionDelegate = [ModalTransitionDelegate new];
+    }
+    return _transitionDelegate;
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
 	return UIStatusBarStyleDefault;
@@ -44,22 +57,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	UIViewController* controller = (UIViewController*)segue.destinationViewController;
 	
-	controller.transitioningDelegate = self;
+	controller.transitioningDelegate = self.transitionDelegate;
 	controller.modalPresentationStyle = UIModalPresentationCustom;
 	controller.modalPresentationCapturesStatusBarAppearance = YES;
 }
 
-- (IBAction)unwindToRootViewController:(UIStoryboardSegue*)unwindSegue {
-}
-
-#pragma mark - Custom transitions
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-	return [ModalTransitionAnimator new];
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-	return [ModalTransitionAnimator new];
-}
+- (IBAction)unwindToRootViewController:(UIStoryboardSegue*)unwindSegue {}
 
 @end
