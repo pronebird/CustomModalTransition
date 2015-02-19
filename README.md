@@ -1,7 +1,7 @@
 Custom modal transition
 =====================
 
-<img src="ScreenRecording.gif" width="240" align="right" vspace="5" hspace="5">
+<img src="ScreenRecording.gif" width="240" align="right" vspace="20" hspace="20">
 
 This transition supports both landscape and portrait modes and works on iOS 7 - iOS 8.2. 
 
