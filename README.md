@@ -5,6 +5,10 @@ This transition supports both landscape and portrait modes and works on iOS 7 - 
 
 ![Picture](ScreenRecording.gif)
 
+### UIPresentationController update (iOS 8 only)
+
+A solution using `UIPresentationController` and without iOS 7 hacks can be found in [ios8 branch](https://github.com/pronebird/CustomModalTransition/tree/ios8). It features appearance events handled properly by `UIPresentationController`, device orientations support and much less code.
+
 ### Cavets
 
 - Controllers will not properly rotate if orientation changed when presented. There is only one exception, if presented controller is a navigation controller, then rotation works fine. Seems like UIKit bug.
