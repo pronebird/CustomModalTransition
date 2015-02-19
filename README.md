@@ -11,7 +11,7 @@ A solution using `UIPresentationController` and without iOS 7 hacks can be found
 
 ### Cavets
 
-- Controllers will not properly rotate if orientation changed when presented. There is only one exception, if presented controller is a navigation controller, then rotation works fine. Seems like UIKit bug.
+- Controllers will not properly rotate if orientation changed when presented. There is only one exception, if presented controller is a navigation controller, then rotation works fine. This seems to be a UIKit bug on iOS 7 or iOS 8. `UIPresentationController` solves that problem by providing a way to resize controllers on orientation change.
 - State restoration is possible but presented VC should restore `transitioningDelegate`, `modalPresentationStyle` and `modalPresentationCapturesStatusBarAppearance`. If you use storyboards then it's easy:
 
   ```objc
