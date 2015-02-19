@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		584F66401A9623FB0027DA3B /* ModalTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F663F1A9623FB0027DA3B /* ModalTransitionDelegate.m */; };
+		584F66441A9625810027DA3B /* ModalPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584F66431A9625810027DA3B /* ModalPresentationController.m */; };
 		584FA0821937BBE600B81627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0811937BBE600B81627 /* Foundation.framework */; };
 		584FA0841937BBE600B81627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0831937BBE600B81627 /* CoreGraphics.framework */; };
 		584FA0861937BBE600B81627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584FA0851937BBE600B81627 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		584F663E1A9623FB0027DA3B /* ModalTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalTransitionDelegate.h; sourceTree = "<group>"; };
 		584F663F1A9623FB0027DA3B /* ModalTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalTransitionDelegate.m; sourceTree = "<group>"; };
+		584F66421A9625810027DA3B /* ModalPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalPresentationController.h; sourceTree = "<group>"; };
+		584F66431A9625810027DA3B /* ModalPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalPresentationController.m; sourceTree = "<group>"; };
 		584FA07E1937BBE600B81627 /* CustomModalTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomModalTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584FA0811937BBE600B81627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		584FA0831937BBE600B81627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,8 @@
 				584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */,
 				584F663E1A9623FB0027DA3B /* ModalTransitionDelegate.h */,
 				584F663F1A9623FB0027DA3B /* ModalTransitionDelegate.m */,
+				584F66421A9625810027DA3B /* ModalPresentationController.h */,
+				584F66431A9625810027DA3B /* ModalPresentationController.m */,
 			);
 			name = "Modal transition classes";
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				584F66441A9625810027DA3B /* ModalPresentationController.m in Sources */,
 				584FA0B71937BCFE00B81627 /* ModalViewController.m in Sources */,
 				584FA0BD1937BE0900B81627 /* ModalNavigationController.m in Sources */,
 				584FA0C01937BEE900B81627 /* ModalTransitionAnimator.m in Sources */,
