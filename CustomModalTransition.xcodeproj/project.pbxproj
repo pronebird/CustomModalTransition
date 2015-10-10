@@ -27,6 +27,7 @@
 		584FA0BA1937BDEF00B81627 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0B91937BDEF00B81627 /* RootNavigationController.m */; };
 		584FA0BD1937BE0900B81627 /* ModalNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0BC1937BE0900B81627 /* ModalNavigationController.m */; };
 		584FA0C01937BEE900B81627 /* ModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */; };
+		5852DD581BC96A9B00424B30 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5852DD571BC96A9B00424B30 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		584FA0BC1937BE0900B81627 /* ModalNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalNavigationController.m; sourceTree = "<group>"; };
 		584FA0BE1937BEE900B81627 /* ModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalTransitionAnimator.h; sourceTree = "<group>"; };
 		584FA0BF1937BEE900B81627 /* ModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalTransitionAnimator.m; sourceTree = "<group>"; };
+		5852DD571BC96A9B00424B30 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				584FA0BB1937BE0900B81627 /* ModalNavigationController.h */,
 				584FA0BC1937BE0900B81627 /* ModalNavigationController.m */,
 				584FA0B01937BC0000B81627 /* Storyboard.storyboard */,
+				5852DD571BC96A9B00424B30 /* Launch Screen.storyboard */,
 				584FA0931937BBE600B81627 /* Images.xcassets */,
 				584FA0881937BBE600B81627 /* Supporting Files */,
 			);
@@ -267,6 +270,7 @@
 			files = (
 				584FA08C1937BBE600B81627 /* InfoPlist.strings in Resources */,
 				584FA0941937BBE600B81627 /* Images.xcassets in Resources */,
+				5852DD581BC96A9B00424B30 /* Launch Screen.storyboard in Resources */,
 				584FA0B11937BC0000B81627 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,7 +414,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
 				INFOPLIST_FILE = "CustomModalTransition/CustomModalTransition-Info.plist";
@@ -424,7 +427,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomModalTransition/CustomModalTransition-Prefix.pch";
 				INFOPLIST_FILE = "CustomModalTransition/CustomModalTransition-Info.plist";
